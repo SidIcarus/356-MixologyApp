@@ -7,16 +7,19 @@ import java.util.Date;
  */
 public class Recipe {
 
-    private String name;
-    private String imageFile;
-    private double totalVolume;
-    private String volumeUnits;
-    private double alcoholContent;
-    private double rating;
-    private int difficulty;
     private boolean favorite;
     private boolean isDefault;
+
+    private int difficulty;
+
+    private double alcoholContent;
+    private double rating;
+    private double totalVolume;
+
     private Date lastMade;
+    private String imageFile;
+    private String name;
+    private String volumeUnits;
 
     public Recipe(String name, String imageFile, double totalVolume, String volumeUnits,
                   double alcoholContent, double rating, int difficulty, boolean favorite,
@@ -33,12 +36,28 @@ public class Recipe {
         this.lastMade = lastMade;
     }
 
-    public String getName() {
-        return name;
+    public double getAlcoholContent() {
+        return alcoholContent;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
     }
 
     public String getImageFile() {
         return imageFile;
+    }
+
+    public Date getLastMade() {
+        return lastMade;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getRating() {
+        return rating;
     }
 
     public double getTotalVolume() {
@@ -49,27 +68,11 @@ public class Recipe {
         return volumeUnits;
     }
 
-    public double getAlcoholContent() {
-        return alcoholContent;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
-    public int getDifficulty() {
-        return difficulty;
-    }
-
-    public boolean isFavorite() {
-        return favorite;
-    }
-
     public boolean isDefault() {
         return isDefault;
     }
 
-    public Date getLastMade() {
-        return lastMade;
+    public boolean isFavorite() {
+        return favorite;
     }
 }

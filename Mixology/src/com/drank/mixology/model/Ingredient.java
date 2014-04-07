@@ -5,13 +5,15 @@ package com.drank.mixology.model;
  */
 public class Ingredient {
 
-    private String name;
-    private String imageFile;
-    private double totalVolume;
-    private String volumeUnits;
-    private double alcoholContent;
     private boolean isDefault;
+
+    private double alcoholContent;
+    private double totalVolume;
+
     private String category;
+    private String imageFile;
+    private String name;
+    private String volumeUnits;
 
     public Ingredient(String name, String imageFile, double totalVolume, String volumeUnits,
                   double alcoholContent, boolean isDefault, String category) {
@@ -24,12 +26,20 @@ public class Ingredient {
         this.category = category;
     }
 
-    public String getName() {
-        return name;
+    public double getAlcoholContent() {
+        return alcoholContent;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public String getImageFile() {
         return imageFile;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public double getTotalVolume() {
@@ -40,13 +50,7 @@ public class Ingredient {
         return volumeUnits;
     }
 
-    public double getAlcoholContent() {
-        return alcoholContent;
-    }
-
     public boolean isDefault() {
         return isDefault;
     }
-
-    public String getCategory() { return category; }
 }
