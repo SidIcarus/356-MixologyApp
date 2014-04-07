@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
-        android:choiceMode="singleChoice"
-        android:setAdapter="list_drinks_item.xml" />
+        android:choiceMode="singleChoice" />
 
 </LinearLayout>
