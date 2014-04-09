@@ -1,52 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent" 
-              android:layout_height="fill_parent" 
-              android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
     <ImageView
-        android:id="@+id/pic_of_drink"
+        android:id="drink_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/ic_launcher" />
 
-    <TextView
-        android:id="@+id/name_of_drink"
+    <EditText
+        android:id="drink_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="beer" />
-
-    <EditText
-        android:id="@+id/difficulty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="difficulty"/>
-	
-	<EditText
-        android:id="@+id/rating"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="rating"/>
-	
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ingredients" />
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-    </GridLayout>
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:text="drink name"
+        android:layout_toRightOf="drink_image"
         android:ems="10" >
-
         <requestFocus />
     </EditText>
 
-</LinearLayout>
+    <EditText
+        android:id="rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="drink_name"
+        
+        android:text="rating"
+        android:layout_alignParentRight="true"
+        android:ems="10" />
+
+</RelativeLayout>
