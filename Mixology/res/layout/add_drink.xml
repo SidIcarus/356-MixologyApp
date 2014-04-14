@@ -2,30 +2,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <TextView
-        android:id="@+id/drink_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Drink Name" />
-
-    <TextView
-        android:id="@+id/difficulty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/drink_name"
-        android:text="Difficulty" />
-
-    <TextView
-        android:id="@+id/rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/difficulty"
-        android:text="Rating" />
-
     <ImageView
         android:id="@+id/Pic_of_drink"
         android:layout_width="wrap_content"
@@ -36,12 +12,76 @@
         android:src="@drawable/ic_launcher" />
 
     <TextView
-        android:id="@+id/Ingrediant_list"
+        android:id="@+id/ingredients_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Pic_of_drink"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="59dp"
-        android:text="Ingrediants" />
+        android:text="Ingredients" />
 
+    <TextView
+        android:id="@+id/comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/ingredients_list"
+        android:layout_marginBottom="96dp"
+        android:text="Comments" />
+
+    <TextView
+        android:id="@+id/difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/comments"
+        android:layout_alignTop="@+id/Pic_of_drink"
+        android:layout_marginLeft="40dp"
+        android:text="Difficulty" />
+
+    <TextView
+        android:id="@+id/drink_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/difficulty"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="Drink Name" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/difficulty"
+        android:layout_below="@+id/difficulty"
+        android:text="Rating" />
+
+    <EditText
+        android:id="@+id/comment_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/comments"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="textMultiLine" >
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/difficulty_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rating_num"
+        android:layout_alignRight="@+id/comment_content"
+        android:text="3/5" />
+
+    <TextView
+        android:id="@+id/rating_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rating"
+        android:layout_alignBottom="@+id/rating"
+        android:layout_alignLeft="@+id/difficulty_num"
+        android:text="3/5" />
+    
 </RelativeLayout>
