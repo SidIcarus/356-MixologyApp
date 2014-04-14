@@ -2,36 +2,46 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
+    <TextView
+        android:id="@+id/drink_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Drink Name" />
+
+    <TextView
+        android:id="@+id/difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/drink_name"
+        android:text="Difficulty" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/difficulty"
+        android:text="Rating" />
+
     <ImageView
-        android:id="drink_image"
+        android:id="@+id/Pic_of_drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/drink_name"
+        android:layout_marginLeft="29dp"
         android:src="@drawable/ic_launcher" />
 
-    <EditText
-        android:id="drink_name"
+    <TextView
+        android:id="@+id/Ingrediant_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="40dp"
-        android:text="drink name"
-        android:layout_toRightOf="drink_image"
-        android:ems="10" >
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="drink_name"
-        
-        android:text="rating"
-        android:layout_alignParentRight="true"
-        android:ems="10" />
+        android:layout_below="@+id/Pic_of_drink"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:text="Ingrediants" />
 
 </RelativeLayout>
