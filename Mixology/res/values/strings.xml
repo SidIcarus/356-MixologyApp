@@ -4,5 +4,8 @@
     <string name="app_name">Mixology</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_view_recipe">View Recipe</string>
+    <string name="view_recipe_page1">Ingredients</string>
+    <string name="view_recipe_page2">Steps</string>
 
 </resources>
