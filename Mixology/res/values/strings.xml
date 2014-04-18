@@ -2,9 +2,15 @@
 <resources>
 
     <string name="app_name">Mixology</string>
+    <string name="action_add_recipe">Add Recipe</string>
     <string name="action_settings">Settings</string>
+    <string name="button_save_recipe">Save Recipe</string>
+    <string name="error_validate_name_button">OK</string>
+    <string name="error_validate_name_title">Recipe Name is Required</string>
+    <string name="error_validate_name_message">You must enter a recipe name</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_view_recipe">View Recipe</string>
+    <string name="hint_name">Name</string>
+    <string name="no_recipes">No Recipes Added</string>
     <string name="view_recipe_page1">Ingredients</string>
     <string name="view_recipe_page2">Steps</string>
 
