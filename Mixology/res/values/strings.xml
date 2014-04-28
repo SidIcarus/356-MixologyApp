@@ -13,5 +13,6 @@
     <string name="no_recipes">No Recipes Added</string>
     <string name="view_recipe_page1">Ingredients</string>
     <string name="view_recipe_page2">Steps</string>
+    <string name="title_activity_view_recipe">View Recipe</string>
 
 </resources>
