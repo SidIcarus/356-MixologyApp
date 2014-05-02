@@ -5,14 +5,26 @@
     <string name="action_add_recipe">Add Recipe</string>
     <string name="action_settings">Settings</string>
     <string name="button_save_recipe">Save Recipe</string>
+    <string name="edit_recipe">Edit Recipe</string>
     <string name="error_validate_name_button">OK</string>
     <string name="error_validate_name_title">Recipe Name is Required</string>
     <string name="error_validate_name_message">You must enter a recipe name</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hint_alcohol_content">Alcohol Content</string>
+    <string name="hint_difficulty">Difficulty</string>
+    <string name="hint_favorite_check_box">Favorite</string>
+    <string name="hint_image_file">Image File</string>
     <string name="hint_name">Name</string>
+    <string name="hint_rating">Rating</string>
+    <string name="hint_total_volume">Total Volume</string>
+    <string name="hint_volume_units">Volume Units</string>
     <string name="no_recipes">No Recipes Added</string>
     <string name="view_recipe_page1">Ingredients</string>
     <string name="view_recipe_page2">Steps</string>
-    <string name="title_activity_view_recipe">View Recipe</string>
+
+    <string-array name="volume_units_array">
+        <item>oz</item>
+        <item>mL</item>
+    </string-array>
 
 </resources>

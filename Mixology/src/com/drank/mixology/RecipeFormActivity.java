@@ -6,27 +6,47 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.Spinner;
 
 import com.drank.mixology.model.Recipe;
 
 public class RecipeFormActivity extends Activity {
     private long rowId;
 
+    private CheckBox isDefaultCheckBox;
+    private EditText alcoholContentEditText;
+    private EditText categoryEditText;
+    private EditText imageFileEditText;
+    private EditText lastMadeEditText;
     private EditText nameEditText;
+    private EditText totalVolumeEditText;
+    private RatingBar difficultyRatingBar;
+    private RatingBar ratingRatingBar;
+    private Spinner volumeUnitsSpinner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_form);
 
+        alcoholContentEditText = (EditText) findViewById(R.id.alcoholContentEditText);
+        difficultyRatingBar = (RatingBar) findViewById(R.id.difficultyRatingBar);
+        imageFileEditText = (EditText) findViewById(R.id.imageFileEditText);
         nameEditText = (EditText) findViewById(R.id.nameEditText);
+        totalVolumeEditText = (EditText) findViewById(R.id.totalVolumeEditText);
+        volumeUnitsSpinner = (Spinner) findViewById(R.id.volumeUnitsSpinner);
 
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
             rowId = extras.getLong(RecipeListActivity.ROW_ID);
+            alcoholContentEditText.setText(extras.getString(DatabaseHandler.COL_ALCOHOL_CONTENT));
+            difficultyRatingBar.setRating(extras.getInt(DatabaseHandler.COL_DIFFICULTY));
             nameEditText.setText(extras.getString(DatabaseHandler.COL_NAME));
+            totalVolumeEditText.setText(extras.getString(DatabaseHandler.COL_TOTAL_VOLUME));
         }
 
         Button saveRecipeButton =
@@ -37,12 +57,17 @@ public class RecipeFormActivity extends Activity {
     private void saveRecipe() {
         DatabaseHandler databaseConnector = new DatabaseHandler(this);
 
+        String name = nameEditText.getText().toString();
+        double totalVolume = Double.parseDouble(totalVolumeEditText.getText().toString());
+        double alcoholContent = Double.parseDouble(alcoholContentEditText.getText().toString());
+        int difficulty = (int) difficultyRatingBar.getRating();
+
         if (getIntent().getExtras() == null) {
-            databaseConnector.insertRecipe(new Recipe(nameEditText.getText().toString(),
-                    "", 0, "", 0, 0, 0, false, false, null));
+            databaseConnector.insertRecipe(new Recipe(name,
+                    "", totalVolume, "", alcoholContent, 0, difficulty, false, false, null));
         } else {
             databaseConnector.updateRecipe(rowId, new Recipe(nameEditText.getText().toString(),
-                    "", 0, "", 0, 0, 0, false, false, null));
+                    "", totalVolume, "", alcoholContent, 0, difficulty, false, false, null));
         }
     }
 

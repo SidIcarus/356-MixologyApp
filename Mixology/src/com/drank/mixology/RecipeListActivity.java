@@ -37,13 +37,22 @@ public class RecipeListActivity extends ListActivity {
         ((ViewGroup) recipeListView.getParent()).addView(emptyText);
         recipeListView.setEmptyView(emptyText);
 
-        String[] from = new String[] { DatabaseHandler.COL_NAME };
-        int[] to = new int[] { R.id.recipeName };
+        String[] from = new String[] {
+                DatabaseHandler.COL_NAME,
+                DatabaseHandler.COL_TOTAL_VOLUME,
+                DatabaseHandler.COL_ALCOHOL_CONTENT
+        };
+
+        int[] to = new int[] {
+                R.id.recipeName,
+                R.id.totalVolumeTextView,
+                R.id.alcoholContentTextView
+        };
+
         recipeAdapter = new SimpleCursorAdapter(RecipeListActivity.this,
                 R.layout.list__drink_item, null, from, to, 0);
         setListAdapter(recipeAdapter);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -19,6 +19,71 @@
             android:imeOptions="actionNext"
             android:inputType="textPersonName|textCapWords" >
         </EditText>
+
+        <EditText
+            android:id="@+id/imageFileEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_image_file"
+            android:imeOptions="actionNext">
+        </EditText>
+
+        <EditText
+            android:id="@+id/totalVolumeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_total_volume"
+            android:imeOptions="actionNext"
+            android:inputType="number">
+        </EditText>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/volumeUnitsSpinner"
+            android:prompt="@string/hint_volume_units"
+            android:entries="@array/volume_units_array"
+            android:layout_gravity="right"/>
+
+        <EditText
+            android:id="@+id/alcoholContentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_alcohol_content"
+            android:imeOptions="actionNext"
+            android:inputType="number">
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_rating" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingRatingBar"
+            android:layout_gravity="center_horizontal"
+            android:numStars="5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_difficulty" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/difficultyRatingBar"
+            android:layout_gravity="center_horizontal"
+            android:numStars="5"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_favorite_check_box"
+            android:id="@+id/favoriteCheckBox"/>
+
         <Button android:id="@+id/saveRecipeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
