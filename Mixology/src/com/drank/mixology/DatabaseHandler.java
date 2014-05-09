@@ -120,8 +120,9 @@ public class DatabaseHandler {
     }
 
     public Cursor getAllRecipes() {
-        return database.query(TABLE_RECIPES, new String[] {"_id", COL_NAME}, null, null, null, null,
-                COL_NAME);
+        return database.query(TABLE_RECIPES, new String[] {"_id", COL_NAME, COL_TOTAL_VOLUME,
+                COL_ALCOHOL_CONTENT, COL_DIFFICULTY},
+                null, null, null, null, COL_NAME);
     }
 
     public Cursor getRecipe(long id) {
