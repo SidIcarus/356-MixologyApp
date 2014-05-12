@@ -1,9 +1,10 @@
 package com.drank.mixology;
 
+import java.util.Random;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,8 +65,18 @@ public class RecipeListActivity extends ListActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(RecipeListActivity.this, RecipeFormActivity.class);
-        startActivity(intent);
+    	switch(item.getItemId()){
+    	case R.id.actionAddRecipe:
+    		Intent addRecipe = new Intent(RecipeListActivity.this, RecipeFormActivity.class);
+    		startActivity(addRecipe);
+    		break;
+    	case R.id.actionRandomRecipe:
+    		Intent randomRecipe = new Intent(RecipeListActivity.this, ViewRecipeActivity.class);
+    		long randomId = getRandomId();
+    		randomRecipe.putExtra(ROW_ID, randomId);
+    		startActivity(randomRecipe);
+    		break;
+    	}
         return super.onOptionsItemSelected(item);
     }
 
@@ -85,8 +96,23 @@ public class RecipeListActivity extends ListActivity {
         recipeAdapter.changeCursor(null);
         super.onStop();
     }
-
-
+    
+    private long getRandomId(){
+    	DatabaseHandler db = new DatabaseHandler(this);
+    	db.open();
+    	Cursor c = db.getAllRecipes();
+    	int total = c.getCount();
+    	Random r = new Random();
+    	int randInt = r.nextInt(total)+1; // Add one so the range is 1(inclusive) to total (inclusive) 
+    	Log.i("Random", ""+randInt);
+    	c.move(randInt);
+    	int theRandomOne = c.getInt(c.getColumnIndex(DatabaseHandler.COL_ID));    	
+    	c.close();
+    	db.close();
+    	return (long)theRandomOne;
+    	
+    }
+    
     private AdapterView.OnItemClickListener viewRecipeListener =
             new AdapterView.OnItemClickListener() {
                 @Override

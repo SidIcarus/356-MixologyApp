@@ -22,7 +22,7 @@ public class DatabaseHandler {
 
     public static final int DB_VERSION = 1;
 
-    public static final String COL_ID = "id";
+    public static final String COL_ID = "_id";
     public static final String COL_NAME = "name";
     public static final String COL_IMAGE_FILE = "imageFile";
     public static final String COL_TOTAL_VOLUME = "totalVolume";
