@@ -126,7 +126,7 @@ public class DatabaseHandler {
     }
 
     public Cursor getRecipe(long id) {
-        return database.query(TABLE_RECIPES, null, "_id=" + id, null, null, null, null);
+        return database.query(TABLE_RECIPES, null, "_id=?",new String[]{""+id}, null, null, null, null);
     }
 
     public void deleteRecipe(long id) {

@@ -27,4 +27,7 @@
         <item>mL</item>
     </string-array>
 
+    <string name="title_activity_view_ingredients_frag">ViewIngredientsFrag</string>
+    <string name="title_activity_view_steps_frag">ViewStepsFrag</string>
+
 </resources>

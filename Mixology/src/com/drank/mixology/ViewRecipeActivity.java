@@ -8,11 +8,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +32,8 @@ public class ViewRecipeActivity extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+	
+	private long row_id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,9 @@ public class ViewRecipeActivity extends FragmentActivity {
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
+		
+		row_id = getIntent().getLongExtra("row_id", 0);
+		
 
 	}
 
@@ -71,13 +74,15 @@ public class ViewRecipeActivity extends FragmentActivity {
 		@Override
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-			Fragment fragment = new DummySectionFragment();
-			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
-			return fragment;
+			switch(position){
+			case 0:
+				return new ViewIngredientsFrag();
+			case 1:
+				return new ViewStepsFrag();
+			default:
+				break;			
+			}
+			return new Fragment();
 		}
 
 		@Override
@@ -124,6 +129,14 @@ public class ViewRecipeActivity extends FragmentActivity {
 					ARG_SECTION_NUMBER)));
 			return rootView;
 		}
+	}
+	
+	/**
+	 * Getter for row id
+	 * @return the row id
+	 */
+	public long getRowId(){
+		return row_id;
 	}
 
 }
