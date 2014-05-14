@@ -20,14 +20,14 @@
             android:inputType="textPersonName|textCapWords" >
         </EditText>
 		<LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/imageLayout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="5dp" >
         <EditText
             android:id="@+id/imageFileEditText"
-            android:layout_width="wrap_content"
+            android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:hint="@string/hint_image_file"
             android:imeOptions="actionNext">
