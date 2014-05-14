@@ -11,6 +11,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,9 +57,25 @@ public class ViewRecipeActivity extends FragmentActivity {
 	}
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.view_recipe, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(ViewRecipeActivity.this, RecipeFormActivity.class);
-        startActivity(intent);
+        if (item.getItemId() == R.id.action_edit) {
+            Intent intent = new Intent(ViewRecipeActivity.this, RecipeFormActivity.class);
+            intent.putExtra(RecipeListActivity.ROW_ID, row_id);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.action_delete) {
+            DatabaseHandler db = new DatabaseHandler(this);
+            db.deleteRecipe(row_id);
+            this.finish();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

@@ -34,6 +34,7 @@ public class DatabaseHandler {
     public static final String COL_DEFAULT = "isDefault";
     public static final String COL_LAST_MADE = "lastMade";
     public static final String COL_CATEGORY = "category";
+    public static final String COL_DESCRIPTION = "description";
     public static final String DB_NAME = "mixology";
     public static final String TABLE_RECIPES = "recipes";
     public static final String TABLE_INGREDIENTS = "ingredients";
@@ -50,6 +51,7 @@ public class DatabaseHandler {
     public static final String TYPE_DEFAULT = "BOOLEAN";
     public static final String TYPE_LAST_MADE = "DATE";
     public static final String TYPE_CATEGORY = "TEXT";
+    public static final String TYPE_DESCRIPTION = "VARCHAR(1000)";
 
     private SQLiteDatabase database;
     private DatabaseOpenHelper databaseOpenHelper;
@@ -95,6 +97,7 @@ public class DatabaseHandler {
         values.put(COL_FAVORITE, recipe.isFavorite());
         values.put(COL_DEFAULT, recipe.isDefault());
         values.put(COL_LAST_MADE, "2000-01-01");
+        values.put(COL_DESCRIPTION, recipe.getDescription());
 
         open();
         database.insert(TABLE_RECIPES, null, values);
@@ -113,6 +116,7 @@ public class DatabaseHandler {
         values.put(COL_FAVORITE, recipe.isFavorite());
         values.put(COL_DEFAULT, recipe.isDefault());
         values.put(COL_LAST_MADE, "2000-01-01");
+        values.put(COL_DESCRIPTION, recipe.getDescription());
 
         open();
         database.update(TABLE_RECIPES, values, "_id=" + id, null);
@@ -171,7 +175,8 @@ public class DatabaseHandler {
             createRecipesTable += String.format("%s %s, ", COL_DIFFICULTY, TYPE_DIFFICULTY);
             createRecipesTable += String.format("%s %s, ", COL_FAVORITE, TYPE_FAVORITE);
             createRecipesTable += String.format("%s %s, ", COL_DEFAULT, TYPE_DEFAULT);
-            createRecipesTable += String.format("%s %s", COL_LAST_MADE, TYPE_LAST_MADE);
+            createRecipesTable += String.format("%s %s, ", COL_LAST_MADE, TYPE_LAST_MADE);
+            createRecipesTable += String.format("%s %s", COL_DESCRIPTION, TYPE_DESCRIPTION);
             createRecipesTable += ");";
             db.execSQL(createRecipesTable);
 

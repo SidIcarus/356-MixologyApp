@@ -20,10 +20,11 @@ public class Recipe {
     private String imageFile;
     private String name;
     private String volumeUnits;
+    private String description;
 
     public Recipe(String name, String imageFile, double totalVolume, String volumeUnits,
                   double alcoholContent, double rating, int difficulty, boolean favorite,
-                  boolean isDefault, Date lastMade) {
+                  boolean isDefault, Date lastMade, String description) {
         this.name = name;
         this.imageFile = imageFile;
         this.totalVolume = totalVolume;
@@ -34,6 +35,7 @@ public class Recipe {
         this.favorite = favorite;
         this.isDefault = isDefault;
         this.lastMade = lastMade;
+        this.description = description;
     }
 
     public double getAlcoholContent() {
@@ -54,6 +56,10 @@ public class Recipe {
 
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public double getRating() {
